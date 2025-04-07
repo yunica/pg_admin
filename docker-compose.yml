@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  dbsor:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    env_file:
+      - .env
+    environment:
+      - VIRTUAL_PORT=9090
+    expose:
+      - 9090
+    networks:
+      - zero_v3_db_network
+      - proxy_network
+
+networks:
+  zero_v3_db_network:
+    external: true
+  proxy_network:
+    external: true

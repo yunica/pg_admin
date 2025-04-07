@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  dbsor:
+  pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
     env_file:

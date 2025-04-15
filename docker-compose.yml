@@ -3,6 +3,7 @@ version: "3"
 services:
   pgadmin:
     image: dpage/pgadmin4
+    container_name: pgadmin4_container
     env_file:
       - .env
     environment:
@@ -12,9 +13,14 @@ services:
     networks:
       - zero_v3_db_network
       - proxy_network
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
 
 networks:
   zero_v3_db_network:
     external: true
   proxy_network:
     external: true
+
+volumes:
+  pgadmin-data:
